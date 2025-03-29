@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Portfolio</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<li><a href="#" id="openTextAnalysis"><b>Text Analysis for Q3</b></a></li>
+<div id="textAnalysisModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Text Analysis Tool</h2>
+    <div class="input-section">
+      <textarea id="textInput" placeholder="Enter your text here (minimum 10,000 characters)..."></textarea>
+      <button id="analyzeBtn">Analyze Text</button>
+    </div>
+    <div id="analysisResults" class="results-section"></div>
+  </div>
+</div>
+    <div class="bg-shapes">
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-hexagon"></div>
+        <div class="shape shape-diamond"></div>
+        <div class="shape shape-star"></div>
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-square"></div>
+        <div class="shape shape-triangle"></div>
+        <div class="shape shape-hexagon"></div>
+        <div class="shape shape-diamond"></div>
+        <div class="shape shape-star"></div>
+        <div class="shape shape-circle"></div>
+        <div class="shape shape-square"></div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="notification">
+        <div class="notification-icon">✨</div>
+        <div class="notification-text">Welcome to my interactive portfolio!</div>
+    </div>
+
+    <div class="floating-shapes">
+        <div class="floating-shape" style="left: 10%; top: 20%; width: 50px; height: 50px; background: var(--color1); border-radius: 15px;"></div>
+        <div class="floating-shape" style="left: 30%; top: 60%; width: 40px; height: 40px; background: var(--color2); border-radius: 50%;"></div>
+        <div class="floating-shape" style="right: 20%; top: 40%; width: 60px; height: 60px; background: var(--color3); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);"></div>
+    </div>
+
+    <nav class="nav-menu">
+        <div class="nav-item" data-slide="0">Home</div>
+        <div class="nav-item" data-slide="1">About</div>
+        <div class="nav-item" data-slide="2">Skills</div>
+        <div class="nav-item" data-slide="4">Contact</div>
+    </nav>
+
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌓</button>
+
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide-0">
+                <div>
+                    <img src="profile.jpg" alt="Profile" class="profile-img">
+                </div>
+                <div>
+                    <h1 data-original-text="Shardul Joshi"></h1>
+                    <h2 data-original-text="Personal Website!!"></h2>
+                </div>
+            </div>
+            <div class="swiper-slide slide-1">
+                <h2>About Me</h2>
+                <div>
+                    <div class="text"><p>Hey there! I'm someone who finds beauty in both numbers and code, always diving deep into the world of mathematics and 
+                        computer science. When I'm not solving problems, you'll find me on the field, giving my all in every game—because I love a 
+                        good challenge! In my free time, I unwind with soft music and art, letting creativity take over. No matter what I do, one 
+                        thing stays the same—I never back down until I've given my absolute best!
+                     </p></div>
+                     <div>
+                     <button id="knowMoreBtn">Know More</button>
+             
+                     <div id="knowMoreModal" class="modal">
+                         <div class="modal-content">
+                             <span class="close">&times;</span>
+                             <h2>Select a Section</h2>
+                             <div class="section-buttons">
+                                 <button id="educationBtn">Educational Background</button>
+                                 <button id="hobbiesBtn">Hobbies</button>
+                                 <button id="photosBtn">Photo Gallery</button>
+                             </div>
+                         </div>
+                     </div>
+     
+                     <div id="photoGalleryModal" class="modal">
+                         <div class="modal-content gallery-content">
+                             <span class="close gallery-close">&times;</span>
+                             <h2>Photo Gallery</h2>
+                             <div class="gallery-grid">
+                                 <img src="photo1.jpg" alt="Photo 1">
+                                 <img src="photo2.jpg" alt="Photo 2">
+                                 <img src="photo3.jpg" alt="Photo 3">
+                                 <img src="photo4.jpg" alt="Photo 4">
+                                 <img src="photo5.jpg" alt="Photo 5">
+                                 <img src="photo6.jpg" alt="Photo 6">
+                             </div>
+                         </div>
+                     </div>
+             
+                     <div id="educationModal" class="modal">
+                         <div class="modal-content education-modal">
+                             <span class="close">&times;</span>
+                             <h2>Educational Background</h2>
+                             <h3>Schooling</h3>
+                             <div class="timeline">
+                                 <div class="event">Sangamitra School, Hyderabad <span>(2012-2015)</span></div>
+                                 <div class="event">Sharada Vidyalaya, Mangalore <span>(2015-2022)</span></div>
+                                 <div class="event">Motion Education, Kota <span>(2022-2024)</span></div>
+                             </div>
+                             <h3>Achievements</h3>
+                             <ul class="education-list">
+                                 <li>NSEA Qualified</li>
+                                 <li>NSEP Qualified</li>
+                                 <li>NSEC Qualified</li>
+                                 <li>RMO Qualified</li>
+                                 <li>Class 10: 95%</li>
+                                 <li>Class 12: 95.2%</li>
+                                 <li>JEE Mains: 99.95%</li>
+                                 <li>JEE Advanced: AIR 746</li>
+                                 <li>ISI Qualified</li>
+                             </ul>
+                         </div>
+                     </div>
+     
+                     <div id="hobbiesModal" class="modal">
+                         <div class="modal-content hobbies-modal">
+                             <span class="close">&times;</span>
+                             <h2>Hobbies</h2>
+                             <h3>Sports</h3>
+                             <ul class="hobbies-list">
+                                 <li><a href="#" id="footballQuiz">Football (Click to Play Quiz)</a></li>
+                                 <li>Cricket</li>
+                                 <li>Badminton</li>
+                             </ul>
+                             <h3>Art</h3>
+                             <a href="#" id="openGallery">View Art Gallery</a>
+                         </div>
+                     </div>
+     
+                     <div id="footballQuizModal" class="modal">
+                         <div class="modal-content football-modal">
+                             <span class="close">&times;</span>
+                             <h2>Who is the GOAT of Football?</h2>
+                             <input type="text" id="footballAnswer" class="football-input" placeholder="Enter your answer">
+                             <button id="submitFootballAnswer" class="football-button">Submit</button>
+                             <p id="footballResult"></p>
+                             <button id="retryFootballAnswer" class="football-button" style="display: none;">Retry</button>
+                             <button id="viewFootballAnswer" class="football-button" style="display: none;">View Answer</button>
+                             <div id="correctVideo" style="display: none;">
+                                 <video width="320" height="240" controls>
+                                     <source src="Ankara Messi 😇.mp4" type="video/mp4">
+                                     Your browser does not support the video tag.
+                                 </video>
+                             </div>
+                         </div>
+                     </div>
+     
+                     <div id="artGalleryModal" class="modal">
+                         <div class="modal-content gallery-modal">
+                             <span class="close">&times;</span>
+                             <h2>Art Gallery</h2>
+                             <div class="gallery">
+                                 <img src="art1.jpg" alt="Art 1">
+                                 <img src="art2.jpg" alt="Art 2">
+                                 <img src="art3.jpg" alt="Art 3">
+                             </div>
+                         </div>
+                     </div>
+                     <div>
+                         <a href="cv.pdf" download="My_CV.pdf" class="cv-link">Download My CV (PDF)</a>
+                     </div>
+                 </div>
+                 </div>
+                </div>
+            <div class="swiper-slide slide-2">
+                <div class="skills_outer_div">
+                    <h2 data-original-text="Skills"></h2>
+                    <div class="skills-container">
+                        <div>
+                            <h3>Technical Skills</h3>
+                            <ul>
+                                <li><strong>Programming Languages:</strong> C, C++, Python, JavaScript</li>
+                                <li><strong>Web Development:</strong> HTML, CSS, Node.js</li>
+                                <li><strong>Databases:</strong> MongoDB, MySQL</li>
+                                <li><strong>Tools & Technologies:</strong> Git, Postman, FastAPI</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Mathematical Skills</h3>
+                            <ul>
+                                <li>Linear Algebra</li>
+                                <li>Calculus</li>
+                                <li>Discrete Mathematics</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Other Skills</h3>
+                            <ul>
+                                <li>Problem-Solving & Algorithms</li>
+                                <li>Competitive Programming</li>
+                                <li>Logical Thinking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slide-4">
+                <h2 data-original-text="Contact">📞 Contact Me</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        📧 <a href="shardul0750@example.com">shardul0750@example.com</a>
+                    </div>
+                    <div class="contact-item">
+                        📱 <a href="tel:+919380259490">+91-9380259490</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="contact-icon">
+                        <a href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME" target="_blank">@YOUR_INSTAGRAM_USERNAME</a>
+                    </div>
+                    <div class="contact-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" class="contact-icon">
+                        <a href="https://discord.com/users/YOUR_DISCORD_ID" target="_blank">YOUR_DISCORD_USERNAME</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
