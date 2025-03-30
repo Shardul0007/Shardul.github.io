@@ -243,27 +243,25 @@ function setupTextAnalysis() {
 
     analyzeBtn.addEventListener('click', function() {
         const text = textInput.value;
-        
-        if (text.length < 10000) {
-            alert('Please enter at least 10,000 characters for analysis');
+        const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+
+        if (wordCount < 10000) {
+            alert(`Please enter at least 10,000 words for analysis.\n(Current word count: ${wordCount})`);
             return;
         }
 
         const letterCount = text.replace(/[^a-zA-Z]/g, '').length;
-        const wordCount = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
         const spaceCount = (text.match(/\s/g) || []).length;
         const newlineCount = (text.match(/\n/g) || []).length;
         const specialCharCount = text.replace(/[a-zA-Z0-9\s]/g, '').length;
 
-        const pronouns = [
-            'i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them',
+        const pronouns = ['i', 'you', 'he', 'she', 'it', 'we', 'they', 'me', 'him', 'her', 'us', 'them',
             'my', 'your', 'his', 'its', 'our', 'their', 'mine', 'yours', 'hers', 'ours', 'theirs',
             'myself', 'yourself', 'himself', 'herself', 'itself', 'ourselves', 'yourselves', 'themselves',
             'this', 'that', 'these', 'those', 'who', 'whom', 'whose', 'which', 'what'
         ];
         
-        const prepositions = [
-            'about', 'above', 'across', 'after', 'against', 'along', 'among', 'around', 'at',
+        const prepositions = ['about', 'above', 'across', 'after', 'against', 'along', 'among', 'around', 'at',
             'before', 'behind', 'below', 'beneath', 'beside', 'between', 'beyond', 'by',
             'down', 'during', 'for', 'from', 'in', 'inside', 'into', 'like', 'near',
             'of', 'off', 'on', 'out', 'outside', 'over', 'past', 'since', 'through',
